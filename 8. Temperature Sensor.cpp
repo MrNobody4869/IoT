@@ -31,7 +31,6 @@ void loop() {
 /*
 Connections:
 - Temp Sensor to A7 (3pin)
-- Connect the 3-pin ending of the sensor to Arduino.
 - The sensor's 3-pin cable should be inserted into the 7th slot from the left of the bottom-most pins.
 
 How to Use:
