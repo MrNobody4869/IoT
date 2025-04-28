@@ -1,44 +1,54 @@
-#define LED1 10
-#define LED2 11
-#define LED3 12
-#define LED4 13
+// Define pins for LEDs
+#define LED1 10  // LED1 is connected to pin 10
+#define LED2 11  // LED2 is connected to pin 11
+#define LED3 12  // LED3 is connected to pin 12
+#define LED4 13  // LED4 is connected to pin 13
 
 void setup() {
-  // put your setup code here, to run once:
-
-  pinMode(LED1, OUTPUT);
-  pinMode(LED2, OUTPUT);
-  pinMode(LED3, OUTPUT);
-  pinMode(LED4, OUTPUT); 
+  // setup() runs once when the Arduino board is powered ON or reset
+  // Set LED pins as OUTPUT so Arduino can send voltage to them
+  pinMode(LED1, OUTPUT); // Set pin 10 as OUTPUT
+  pinMode(LED2, OUTPUT); // Set pin 11 as OUTPUT
+  pinMode(LED3, OUTPUT); // Set pin 12 as OUTPUT
+  pinMode(LED4, OUTPUT); // Set pin 13 as OUTPUT
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  digitalWrite(LED1, HIGH);
-  delay(200);
-  digitalWrite(LED1, LOW);
-  delay(200);
- 
+  // loop() runs again and again after setup() finishes
+  // We will blink the LEDs one by one with delays
+  // Turn ON LED1
+  digitalWrite(LED1, HIGH); // HIGH means 5V -> LED turns ON
+  delay(200);               // Wait for 200 milliseconds
+  // Turn OFF LED1
+  digitalWrite(LED1, LOW);  // LOW means 0V -> LED turns OFF
+  delay(200);               // Wait for 200 milliseconds
+  // Turn ON LED2
   digitalWrite(LED2, HIGH);
   delay(200);
+  // Turn OFF LED2
   digitalWrite(LED2, LOW);
   delay(200);
- 
+  // Turn ON LED3
   digitalWrite(LED3, HIGH);
   delay(200);
-  digitalWrite(LED3, LOW);
+
+  digitalWrite(LED3, LOW); //LED 3 OFF
   delay(200);
- 
-  digitalWrite(LED4, HIGH);
+
+  digitalWrite(LED4, HIGH); //LED 4 ON
   delay(200);
-  digitalWrite(LED4, LOW);
+
+  digitalWrite(LED4, LOW); //LED 4 OFF
   delay(200);
+  // After finishing LED4, the loop starts again from LED1
 }
+
+/*
 
 Connections:
 
-
-Connect 5 pin cable to below the LED and other end to first slot from right of 5 pin line
+LED TO C7
+Connect 6 pin cable to below the LED and other end to first slot from right of 6 pin line
 
 
 
