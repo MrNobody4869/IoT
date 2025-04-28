@@ -47,98 +47,37 @@ void loop() {
 
 Connections:
 
-LED TO C7
+LED TO C7 (6pin)
 Connect 6 pin cable to below the LED and other end to first slot from right of 6 pin line
 
 
 
-#define LED1 10, #define LED2 11, etc.:
-#define is used to give a name to a value.
+Definitions:
+- #define is used to give a simple name to a pin number.
+  Example: #define LED1 10 means whenever we write LED1, it actually means pin 10.
 
-Here, you are saying:
+setup():
+- Runs only once when Arduino starts.
+- We use pinMode() to set each LED pin as OUTPUT (because we want to control LEDs, not read from them).
 
-LED1 = pin 10
+loop():
+- Runs forever.
+- In the loop, we:
+    - Turn ON each LED (digitalWrite(pin, HIGH))
+    - Wait 200 ms (delay(200))
+    - Turn OFF each LED (digitalWrite(pin, LOW))
+    - Wait 200 ms again.
+- This pattern makes the LEDs blink one by one with visible delays.
 
-LED2 = pin 11
+Important Functions:
+- pinMode(pin, OUTPUT): Configure the pin as output.
+- digitalWrite(pin, HIGH/LOW): Turn the pin ON (HIGH = 5V) or OFF (LOW = 0V).
+- delay(ms): Pause the program for the given milliseconds.
 
-LED3 = pin 12
-
-LED4 = pin 13
-
-This makes your code easier to read and change.
-(Instead of writing 10, 11, etc. everywhere, you use LED1, LED2.)
-
-void setup() {}:
-This function runs only once when Arduino starts.
-
-You use setup() to set the pin modes.
-
-pinMode(LED1, OUTPUT);
-pinMode() is used to tell Arduino how you want to use the pin:
-
-OUTPUT means sending signal (like turning an LED ON or OFF).
-
-INPUT would mean receiving signal (like from a sensor), but here we are using OUTPUT because we want to control LEDs.
-
-So you are saying:
-
-Pin 10 (LED1) is output.
-
-Pin 11 (LED2) is output.
-
-Pin 12 (LED3) is output.
-
-Pin 13 (LED4) is output.
-
-void loop() {}:
-This function keeps running forever after setup() finishes.
-
-Inside loop(), you are blinking the LEDs one by one.
-
-What each command means inside loop():
-digitalWrite(LED1, HIGH);
-digitalWrite() is used to turn a pin ON or OFF.
-
-HIGH means turn ON (give 5V).
-
-So here, LED1 (pin 10) is turned ON.
-
-delay(200);
-delay() pauses the Arduino for some time.
-
-200 means 200 milliseconds (0.2 seconds).
-
-So after turning the LED ON, Arduino waits for 200 ms.
-
-digitalWrite(LED1, LOW);
-LOW means turn OFF (0V).
-
-So here, LED1 (pin 10) is turned OFF.
-
-delay(200);
-Again wait for 200 ms after turning it OFF.
-
-Step-by-step process:
-Turn ON LED1 → Wait 200 ms → Turn OFF LED1 → Wait 200 ms.
-
-Turn ON LED2 → Wait 200 ms → Turn OFF LED2 → Wait 200 ms.
-
-Turn ON LED3 → Wait 200 ms → Turn OFF LED3 → Wait 200 ms.
-
-Turn ON LED4 → Wait 200 ms → Turn OFF LED4 → Wait 200 ms.
-
-Repeat the whole cycle forever.
-
-In very simple words:
-pinMode() → Sets the role of the pin (OUTPUT = send signal to LED).
-
-digitalWrite() → Turns the LED ON or OFF.
-
-delay() → Pauses the program for some time (makes LEDs visible blinking).
-
-HIGH → ON.
-
-LOW → OFF.
+Summary:
+- This code sequentially blinks four LEDs connected to pins 10, 11, 12, and 13.
+- Each LED turns ON and OFF with a 0.2-second delay.
+- The whole sequence repeats forever.
 
 */
 
